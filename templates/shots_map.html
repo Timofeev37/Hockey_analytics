@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head><title>Броски</title></head>
+<style>
+        .watermark {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            color: #888;
+            font-size: 14px;
+            opacity: 0.7;
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #e5e5e5;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .home-btn:hover {
+            background: #dcdcdc;
+        }
+
+    </style>
+<body>
+
+<div class="watermark">t.me/ice_forecast</div>
+
+<h1>Карты бросков</h1>
+
+<a href="/" class="home-btn">🏠 Домой</a>
+
+<form action="/shots" method="post">
+
+
+<select name="season">
+    {% for s in season_list %}
+        <option value="{{s}}" {% if selected.season == s %}selected{% endif %}>{{s}}</option>
+    {% endfor %}
+</select>
+
+<select name="stage">
+    {% for s in stage_list %}
+        <option value="{{s}}" {% if selected.stage == s %}selected{% endif %}>{{s}}</option>
+    {% endfor %}
+</select>
+
+<select name="pos">
+    {% for p in pos_list %}
+        <option value="{{p}}" {% if selected.pos == p %}selected{% endif %}>{{p}}</option>
+    {% endfor %}
+</select>
+
+<select name="format">
+    {% for f in format_list %}
+        <option value="{{f}}" {% if selected.format == f %}selected{% endif %}>{{f}}</option>
+    {% endfor %}
+</select>
+
+<select name="team">
+    {% for t in team_list %}
+        <option value="{{t}}">{{t}}</option>
+    {% endfor %}
+</select>
+
+<select name="graphic">
+    {% for g in graphic_list %}
+        <option value="{{g}}"
+            {% if selected.graphic == g %}selected{% endif %}
+        >{{g}}</option>
+    {% endfor %}
+</select>
+
+<select name="map_type">
+    {% for m in map_type_list %}
+        <option value="{{m}}"
+            {% if selected.map_type == m %}selected{% endif %}
+        >{{m}}</option>
+    {% endfor %}
+</select>
+
+
+
+<input type="text" name="player" value="{{selected.player}}" placeholder="Имя игрока">
+
+<button type="submit">Показать</button>
+</form>
+{% if image_ready %}
+    <img src="/static/images/heat_map.png" style="max-width:100%; height:auto;">
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>КХЛ 2025/26 Командные рейтинги и статистика</title>
+
+    <style>
+        .watermark {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            color: #888;
+            font-size: 14px;
+            opacity: 0.7;
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #e5e5e5;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .home-btn:hover {
+            background: #dcdcdc;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="watermark">t.me/ice_forecast</div>
+
+<h1>КХЛ 2025/26 Командные рейтинги и статистика</h1>
+<a href="/" class="home-btn">🏠 Домой</a>
+
+<form action="/teams" method="post">
+    <label>Фильтр по столбцу:</label>
+    <select name="column">
+      {% for col in columns %}
+        <option value="{{ col }}">{{ col }}</option>
+      {% endfor %}
+    </select>
+
+    <label>Порядок:</label>
+    <select name="order">
+      {% for o in order_var %}
+        <option value="{{ o }}">{{ o }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit">Показать</button>
+</form>
+
+{% if image_ready %}
+    <img src="/static/images/best_teams.png" style="max-width:100%; height:auto;">
+{% endif %}
+
+</body>
+</html>
