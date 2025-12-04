@@ -3,7 +3,7 @@ README - Аналитическое веб-приложение KHL Analytics
 Это приложение — интерактивный веб-инструмент для визуализации
 статистики КХЛ:
 командных рейтингов, рейтингов игроков и карт бросков/голов/xG.
-Написано на Python, использует Flask на бэкенде и HTML/Jinja2 на
+Написано на Python, использует Flask на бэкенде и HTML на
 фронтенде.
 
 Возможности приложения
@@ -58,13 +58,18 @@ README - Аналитическое веб-приложение KHL Analytics
 -   generate_heat_map (создание тепловой карты)
 -   generate_heat_map_points (создание карты бросков с ожиданием xG)
 
-Карта сохраняется в /static/images/shots_map.png
+Карта сохраняется в /static/images/heat_map.png
 
 Структура проекта
 
-project/ ├── app.py ├── best_teams.py ├── best_players.py ├──
-shots_map.py ├── static/images/ ├── templates/ ├── requirements.txt └──
-README.md
+project/ ├── app.py 
+         ├── best_teams.py 
+         ├── best_players.py 
+         ├── shots_map.py 
+         ├── static/images/ 
+         ├── templates/ 
+         ├── requirements.txt 
+         └── README.md
 
 Установка и запуск
 
@@ -73,4 +78,4 @@ README.md
 
 Технологии
 
-Python, Flask, Jinja2, Pandas, Matplotlib, Seaborn
+Python, Flask, Pandas, Matplotlib, Seaborn
